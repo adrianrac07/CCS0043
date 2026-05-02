@@ -1,0 +1,140 @@
+/* Cleaned, simplified CSS for the resume vCard */
+
+/* Box sizing and base type scale */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #545E6C;
+  background: #f5f5f5;
+  font-size: 14px;
+}
+
+a { color: #2d7788; text-decoration: none; }
+a:hover { color: #1a454f; text-decoration: underline; }
+
+p { line-height: 1.5; }
+
+/* Layout container */
+.wrapper {
+  background: #42A8C0;
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Sidebar */
+.sidebar-wrapper {
+  background: #42A8C0;
+  position: absolute;
+  right: 0;
+  width: 240px;
+  color: #fff;
+  /* do not force tall min-height so content dictates height */
+}
+.sidebar-wrapper a { color: #fff; }
+
+.sidebar-wrapper .profile-container {
+  padding: 30px;
+  background: rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.sidebar-wrapper .name {
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0 0 10px;
+}
+.sidebar-wrapper .tagline {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+  margin: 0 0 5px;
+}
+
+.sidebar-wrapper .profile {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+/* Contact and blocks */
+.sidebar-wrapper .container-block { padding: 20px; }
+.sidebar-wrapper .container-block-title {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.sidebar-wrapper .contact-list,
+.sidebar-wrapper .languages-list,
+.sidebar-wrapper .interests-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+.sidebar-wrapper .contact-list li,
+.sidebar-wrapper .languages-list li,
+.sidebar-wrapper .interests-list li {
+  margin: 0 0 10px;
+}
+
+/* Education / generic item spacing */
+.sidebar-wrapper .education-container .item {
+  margin-bottom: 16px;
+}
+.sidebar-wrapper .education-container .meta,
+.sidebar-wrapper .education-container .time,
+.sidebar-wrapper .languages-container .lang-desc {
+  color: rgba(255,255,255,0.6);
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 0 6px;
+}
+
+/* Main content */
+.main-wrapper {
+  background: #fff;
+  padding: 60px;
+  padding-right: 300px; /* space for sidebar */
+}
+.main-wrapper .section-title {
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: 500;
+  color: #2d7788;
+  margin: 0 0 20px;
+}
+.main-wrapper .section { margin-bottom: 60px; }
+
+.main-wrapper .upper-row { position: relative; margin-bottom: 2px; }
+.main-wrapper .job-title { color: #3F4650; font-size: 16px; margin: 0; font-weight: 500; }
+.main-wrapper .time { position: absolute; right: 0; top: 0; color: #97AAC3; }
+.main-wrapper .company { color: #97AAC3; margin-bottom: 10px; }
+
+/* Skill bars */
+.skillset .level-title { font-size: 14px; margin: 0 0 12px; }
+.skillset .level-bar { height: 12px; background: rgba(56,4,151,0.77); border-radius: 2px; }
+.skillset .theme-progress-bar { background: #000; }
+
+/* Footer */
+.footer { padding: 30px 0 60px; }
+.footer .copyright { color: #545E6C; font-size: 13px; }
+.footer .fa-heart { color: #fb866a; }
+
+/* Responsive tweaks */
+@media (max-width: 767.98px) {
+  .sidebar-wrapper { position: static; width: auto; }
+  .main-wrapper { padding: 30px; padding-right: 0; }
+  .main-wrapper .time { position: static; display: block; margin-top: 6px; }
+}
+
+@media (min-width: 992px) {
+  .skillset .level-title { display: inline-block; float: left; width: 30%; margin-bottom: 0; }
+}

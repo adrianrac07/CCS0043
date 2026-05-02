@@ -22,18 +22,19 @@
                 $phonenum = "09123456789";
                 $facebook = "facebook.com/adrianrovic";
                 $linkedin = "linkedin.com/in/adrianrovic";
+                $profile = "https://cdn.inst-fs-sin-prod.inscloudgate.net/3e1f897c-09d4-40ee-bd05-834d3f2aabdf?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zZTFmODk3Yy0wOWQ0LTQwZWUtYmQwNS04MzRkM2YyYWFiZGYiLCJ0ZW5hbnQiOiJjYW52YXMiLCJpYXQiOjE3Nzc2NDkzNDksImV4cCI6MTc3NzczNTc0OX0.QjrMdMM1weG24ebxFMTk6lFF9xdTH8YELjYPOJs79adGHUagfPwclQmL7yoXjacLlpc75cew1r1uG3UcLF6tTA&content_type=image%2Fpng";
 ?>
     <div class="wrapper mt-lg-5">
         <div class="sidebar-wrapper">
             <div class="profile-container">
-                <img class="profile" src="https://cdn.inst-fs-sin-prod.inscloudgate.net/3e1f897c-09d4-40ee-bd05-834d3f2aabdf?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii8zZTFmODk3Yy0wOWQ0LTQwZWUtYmQwNS04MzRkM2YyYWFiZGYiLCJ0ZW5hbnQiOiJjYW52YXMiLCJpYXQiOjE3NzcwNjkxMjQsImV4cCI6MTc3NzE1NTUyNH0.BDVV4XnAY3KVVXf3D02DzTG_iIkHcKuQLmi8Y4naPgHRy1bY3TJKdx3x7IqYx8WqkFiO9T5QhotU4JYfg2kd2Q&content_type=image%2Fpng"  alt="Profile Pic"/>
+                <img class="profile" src="<?php echo $profile; ?>"  alt="Profile Pic"/>
                 <?php echo "<h1 class=\"name\">$firstname $middlename $lastname</h1>"; ?>
                 <?php echo "<h3 class=\"tagline\">$course</h3>"; ?>
             </div>
             
             <div class="contact-container container-block">
                 <?php echo "<h2 class=\"container-block-title\">Contact Information</h2>"; ?>
-                <ul class="list-unstyled contact-list">
+                <ul class="list-unstyled contact-list" style="padding-left: 20px;">
                     <?php echo "<li class=\"email\"><i class=\"fa-solid fa-envelope\"></i><a href=\"mailto:$email\">$email</a></li>"; ?>
                     <?php echo "<li class=\"phone\"><i class=\"fa-solid fa-phone\"></i><a href=\"tel:$phonenum\">$phonenum</a></li>"; ?>
                     <?php echo "<li class=\"facebook\"><i class=\"fa-brands fa-facebook\"></i><a href=\"https://$facebook\" target=\"_blank\">$facebook</a></li>"; ?>
@@ -144,15 +145,13 @@
 						</div>                                
                     </div>
                     
-                    
-                    
-                    <div class="item">
-                        <h3 class="level-title"> Photoshop</h3>
-                        <div class="progress level-bar">
-<div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">						
-      <div class="progress-bar" style="width: 75%"></div>
 
-</div>                                 
+
+                    <div class="item">
+                        <h3 class="level-title">Photoshop</h3>
+                        <div class="progress level-bar">
+                            <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
                     </div>
                     
                 </div>  
@@ -161,9 +160,7 @@
         </div>
     </div>
 
-    <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar text-bg-success" style="width: 25%">25%</div>
-</div>
+    
  
    
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
