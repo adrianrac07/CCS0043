@@ -48,21 +48,21 @@ if (isset($_COOKIE['start_time'])) {
     $elapsed = time() - $_COOKIE['start_time'];
 
     if ($elapsed >= 10) {
-        echo "Firstname: " . $_COOKIE['firstname'] . "<br>";
+        echo "First Name: " . $_COOKIE['firstname'] . "<br>";
     } else {
-        echo "Firstname: Waiting for 10 seconds...<br>";
+        echo "First Name: Waiting for 10 seconds...<br>";
     }
 
     if ($elapsed >= 20) {
-        echo "Middlename: " . $_COOKIE['middlename'] . "<br>";
+        echo "Middle Name: " . $_COOKIE['middlename'] . "<br>";
     } else {
-        echo "Middlename: Waiting for 20 seconds...<br>";
+        echo "Middle Name: Waiting for 20 seconds...<br>";
     }
 
     if ($elapsed >= 30) {
-        echo "Lastname: " . $_COOKIE['lastname'] . "<br>";
+        echo "Last Name: " . $_COOKIE['lastname'] . "<br>";
     } else {
-        echo "Lastname: Waiting for 30 seconds...<br>";
+        echo "Last Name: Waiting for 30 seconds...<br>";
     }
 }
 ?>
