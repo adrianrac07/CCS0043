@@ -6,26 +6,38 @@
     body { 
         font-family: Arial, sans-serif; 
         margin: 30px; 
-        background: #f9f9f9; 
+        background: #44624a; 
     }
 
     h2 { 
-        color: #333; 
+        color: #000000ff; 
     }
 
     table { 
         border-collapse: collapse; 
-        margin-top: 15px; 
+        margin: 15px auto;
+        max-width: 720px;
+        width: auto;
     }
 
     td, th { 
-        border: 1px solid #825454; 
+        border: 1px solid #000000ff; 
+        background: #a4bba1ff;
         padding: 8px; 
-        text-align: left; 
+        text-align: center; 
     }
 
     .result { 
         margin-top: 20px; 
+    }
+
+    
+    .result table { 
+        margin: 0 auto;
+    }
+
+    input{
+        background: #f1ebe1;
     }
   </style>
 </head>

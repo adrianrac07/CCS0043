@@ -8,19 +8,19 @@
     <table>
       <tr>
         <td>First Name:</td>
-        <td><input type="text" name="fname"></td>
+        <td><input type="text" name="firstname"></td>
       </tr>
       <tr>
         <td>Middle Name:</td>
-        <td><input type="text" name="mname"></td>
+        <td><input type="text" name="middlename"></td>
       </tr>
       <tr>
         <td>Last Name:</td>
-        <td><input type="text" name="lname"></td>
+        <td><input type="text" name="lastname"></td>
       </tr>
       <tr>
         <td>Date of Birth:</td>
-        <td><input type="text" name="dob"></td>
+        <td><input type="text" name="dateofbirth"></td>
       </tr>
       <tr>
         <td>Address:</td>
@@ -33,12 +33,12 @@
   </form>
 
   <?php
-  if (isset($_POST['fname'])) {
+  if (isset($_POST['firstname'])) {
       echo "<br>";
-      echo "First Name: " . $_POST['fname'] . "<br>";
-      echo "Middle Name: " . $_POST['mname'] . "<br>";
-      echo "Last Name: " . $_POST['lname'] . "<br>";
-      echo "Date of Birth: " . $_POST['dob'] . "<br>";
+      echo "First Name: " . $_POST['firstname'] . "<br>";
+      echo "Middle Name: " . $_POST['middlename'] . "<br>";
+      echo "Last Name: " . $_POST['lastname'] . "<br>";
+      echo "Date of Birth: " . $_POST['dateofbirth'] . "<br>";
       echo "Address: " . $_POST['address'] . "<br>";
   }
   ?>
