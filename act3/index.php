@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Array Operations</title>
@@ -16,29 +18,37 @@
             text-align: left;
         }
     </style>
-</head>
-<body>
+</head> 
 
-<?php
-$numbers = array(1, 2, 3, 4, 5, 6, 7, 8, 10);
+<body> 
 
-$sum = array_sum($numbers);
+ 
 
-$subtraction = $numbers[0];
-for ($i = 1; $i < count($numbers); $i++) {
-    $subtraction -= $numbers[$i];
-}
+<?php 
 
-$product = 1;
-foreach ($numbers as $num) {
-    $product *= $num;
-}
+$numbers = array(5,8,6); 
 
-$division = $numbers[0];
-for ($i = 1; $i < count($numbers); $i++) {
-    $division /= $numbers[$i];
-}
-?>
+ 
+
+$sum = array_sum($numbers); 
+
+ 
+
+$subtraction = $numbers[0]; 
+
+for ($i = 1; $i < count($numbers); $i++) { 
+ $subtraction -= $numbers[$i]; 
+
+} 
+$product = 1; 
+foreach ($numbers as $num) { 
+ $product *= $num; 
+} 
+
+$division = $numbers[0]; 
+for ($i = 1; $i < count($numbers); $i++) { $division /= $numbers[$i]; 
+} 
+?> 
 
 <table>
     <tr>
@@ -60,7 +70,8 @@ for ($i = 1; $i < count($numbers); $i++) {
         <td>Division</td>
         <td><?= $division; ?></td>
     </tr>
-</table>
+</table> 
+</body> 
+</html> 
 
-</body>
-</html>
+ 

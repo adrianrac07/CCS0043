@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>POST_INFO</title>
+  <title>post_info</title>
 </head>
 <body>
   <form method="post" action="">
