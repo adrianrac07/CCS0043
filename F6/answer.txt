@@ -1,0 +1,25 @@
+1.	What is database?
+is an organized collection of data that is stored and managed in a table.
+2.	Give at least 5 where you can use a database
+School Systems
+Online Shopping websites
+E-Bank Systems
+Social Media
+Hospital Systems
+3.	What is MySQL?
+MySQL is a open-source relational database management system that usus sql to store, manage, and retrieve data
+4.	What is the importance of MySQL in PHP?
+It is important since it allows web applications to store and manage data efficiently 
+5.	Different command function used in MySQL?
+CREATE, INSERT, SELECT, UPDATE, DELETE, WHERE.
+6.	Give 10 Examples of websites that use database.
+Facebook
+YouTube
+TikTok
+Netflix
+Instagram
+Reddit
+Shopee
+Lazada
+Google 
+Spotify
