@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "dog_db";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include('DogSQL.php');
 
 $sql = "SELECT * FROM dogs";
 $result = $conn->query($sql);
@@ -20,13 +9,15 @@ $result = $conn->query($sql);
 <html>
 <head>
 <title>Dog Records</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h2>Dog Records</h2>
 
-<table border="1">
+<table>
 <tr>
+  <th>ID</th>
   <th>Name</th>
   <th>Breed</th>
   <th>Age</th>
@@ -40,6 +31,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
     echo "<tr>";
+    echo "<td>" . $row["id"] . "</td>";
     echo "<td>" . $row["name"] . "</td>";
     echo "<td>" . $row["breed"] . "</td>";
     echo "<td>" . $row["age"] . "</td>";
@@ -50,7 +42,7 @@ if ($result->num_rows > 0) {
     echo "</tr>";
   }
 } else {
-  echo "0 results";
+  echo "<tr><td colspan='8'>No records found</td></tr>";
 }
 
 $conn->close();
@@ -58,8 +50,7 @@ $conn->close();
 
 </table>
 
-<br>
-<a href="DogRegister.php">Back</a>
+<a href="DogRegister.php" class="btn">Return</a>
 
 </body>
 </html>

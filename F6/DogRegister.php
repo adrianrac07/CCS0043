@@ -1,31 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "dog_db";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+include('DogSQL.php');
 if (isset($_POST['save'])) {
   $name = $_POST['name'];
   $breed = $_POST['breed'];
-  $age = intval($_POST['age']);
+  $age = $_POST['age'];
   $address = $_POST['address'];
   $color = $_POST['color'];
-  $height = floatval($_POST['height']);
-  $weight = floatval($_POST['weight']);
+  $height = $_POST['height'];
+  $weight = $_POST['weight'];
 
   $sql = "INSERT INTO dogs (name, breed, age, address, color, height, weight)
-  VALUES ('$name', '$breed', $age, '$address', '$color', $height, $weight)";
+          VALUES ('$name','$breed','$age','$address','$color','$height','$weight')";
 
   if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    header("Location: DogView.php"); 
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $conn->error;
   }
 }
 
@@ -36,22 +26,38 @@ $conn->close();
 <html>
 <head>
 <title>Dog Register</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h2>Dog Registration</h2>
 
 <form method="POST">
-  Name: <input type="text" name="name"><br><br>
-  Breed: <input type="text" name="breed"><br><br>
-  Age: <input type="number" name="age"><br><br>
-  Address: <input type="text" name="address"><br><br>
-  Color: <input type="text" name="color"><br><br>
-  Height: <input type="text" name="height"><br><br>
-  Weight: <input type="text" name="weight"><br><br>
+  <label>Name</label>
+  <input type="text" name="name" required>
 
-  <input type="submit" name="save" value="Save" action="DogView.php">
+  <label>Breed</label>
+  <input type="text" name="breed" required>
+
+  <label>Age</label>
+  <input type="number" name="age" required>
+
+  <label>Address</label>
+  <input type="text" name="address">
+
+  <label>Color</label>
+  <input type="text" name="color">
+
+  <label>Height</label>
+  <input type="text" name="height">
+
+  <label>Weight</label>
+  <input type="text" name="weight">
+
+  <input type="submit" name="save" value="Save">
 </form>
-<a href="DogView.php">View Dogs</a>
+
+<a href="DogView.php" class="btn">View Dogs</a>
+
 </body>
 </html>
