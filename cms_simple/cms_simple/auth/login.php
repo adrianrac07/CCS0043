@@ -54,7 +54,11 @@ $pageTitle = "Login";
 $base = "../";
 include "../includes/header.php";
 ?>
-
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
 <div class="auth-wrapper">
   <div class="card auth-card fade-in">
     <div class="card-body p-4 p-md-5">
@@ -96,3 +100,5 @@ include "../includes/header.php";
 </div>
 
 <?php include "../includes/footer.php"; ?>
+      </body>
+      </html>

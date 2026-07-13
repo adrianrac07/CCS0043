@@ -4,13 +4,13 @@ include "../config/db.php";
 
 if (!isset($_SESSION['user_id'])) {
     $_SESSION['error'] = "Please log in first.";
-    header("Location: ../auth/login.php");
+    header("Location: auth/login.php");
     exit();
 }
 
 if ($_SESSION['role'] !== 'admin') {
-    $_SESSION['error'] = "Only admins can access this page.";
-    header("Location: ../index.php");
+    $_SESSION['error'] = "Only Admins Can manage Files. Please Contact Admin For Access";
+    header("Location: index.php");
     exit();
 }
 
@@ -75,7 +75,11 @@ $pageTitle = "Dashboard";
 $base = "../";
 include "../includes/header.php";
 ?>
-
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
 <div class="container py-5">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
@@ -179,3 +183,5 @@ include "../includes/header.php";
 </div>
 
 <?php include "../includes/footer.php"; ?>
+</body>
+<html>

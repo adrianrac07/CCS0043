@@ -2,8 +2,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-semibold" href="<?php echo $base; ?>index.php">
-      <i class="bi bi-stack"></i> Personal<span class="text-accent">CMS</span>
-    </a>
+<img src="assets/logo1.png" style="width: 40px;">
+  </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +12,6 @@
       <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
         <li class="nav-item"><a class="nav-link" href="<?php echo $base; ?>index.php"><i class="bi bi-house-door me-1"></i>Home</a></li>
         <li class="nav-item"><a class="nav-link" href="<?php echo $base; ?>about.php"><i class="bi bi-info-circle me-1"></i>About</a></li>
-        <li class="nav-item"><a class="nav-link" href="<?php echo $base; ?>contact.php"><i class="bi bi-envelope me-1"></i>Contact</a></li>
         <?php if (isset($_SESSION['user_id']) && isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
           <li class="nav-item"><a class="nav-link" href="<?php echo $base; ?>admin/dashboard.php"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
         <?php endif; ?>

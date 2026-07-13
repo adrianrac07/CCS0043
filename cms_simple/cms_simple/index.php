@@ -10,9 +10,6 @@ include "includes/header.php";
 
 <section class="hero text-center">
   <div class="container position-relative">
-    <span class="badge bg-light text-primary-emphasis mb-3 px-3 py-2 rounded-pill">
-      <i class="bi bi-stars me-1"></i> Simple. Fast. Useful.
-    </span>
     <h1 class="display-5 mb-3">A beginner-friendly CMS for subjects and files</h1>
     <p class="lead mx-auto" style="max-width: 640px;">
       Browse learning topics, download files, and manage everything with a simple admin dashboard.

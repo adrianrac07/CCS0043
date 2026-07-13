@@ -1,9 +1,9 @@
 <?php
 session_start();
-include "../config/db.php";
+include "config/db.php";
 
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-    $_SESSION['error'] = "Only admins can manage files.";
+    $_SESSION['error'] = "Only Admins Can manage Files. Please Contact Admin For Access";
     header("Location: dashboard.php");
     exit();
 }
@@ -15,7 +15,7 @@ if ($subject_id <= 0) {
 }
 
 if (isset($_POST['upload'])) {
-    $targetDir = __DIR__ . "/../uploads/";
+    $targetDir = "cms_simple/uploads/";
     $fileName = basename($_FILES['file']['name']);
     $targetFile = $targetDir . $fileName;
 
