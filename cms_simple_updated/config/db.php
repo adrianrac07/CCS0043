@@ -76,6 +76,10 @@ $conn->query("CREATE TABLE IF NOT EXISTS portfolio (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB");
 
+// Minimal extra columns for the Portfolio Category feature (Web App / Study Material)
+$conn->query("ALTER TABLE portfolio ADD COLUMN IF NOT EXISTS category ENUM('Web App','Study Material') NOT NULL DEFAULT 'Web App'");
+$conn->query("ALTER TABLE portfolio ADD COLUMN IF NOT EXISTS link VARCHAR(255) NULL");
+
 // CMS pages table (CMS Content System feature) - lets admin edit Home / About content
 $conn->query("CREATE TABLE IF NOT EXISTS cms_pages (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -83,10 +87,11 @@ $conn->query("CREATE TABLE IF NOT EXISTS cms_pages (
     content TEXT
 ) ENGINE=InnoDB");
 
-// Seed default rows for the two editable CMS pages, only if they don't exist yet
+// Seed default rows for the three editable CMS pages, only if they don't exist yet
 $conn->query("INSERT IGNORE INTO cms_pages (page_name, content) VALUES
     ('home', 'Browse learning topics, download files, and manage everything with a simple admin dashboard.'),
-    ('about', 'I am Adrian Rovic A. Corrales, a 2nd Year Student from FEU Institute of Technology, pursuing a degree in BSITCST. I have a strong passion for web development and enjoy creating dynamic and user-friendly websites.')");
+    ('about', 'I am Adrian Rovic A. Corrales, a 2nd Year Student from FEU Institute of Technology, pursuing a degree in BSITCST. I have a strong passion for web development and enjoy creating dynamic and user-friendly websites.'),
+    ('portfolio', 'A showcase of work and projects.')");
 
 if (!is_dir(__DIR__ . "/../uploads")) {
     mkdir(__DIR__ . "/../uploads", 0777, true);

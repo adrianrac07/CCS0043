@@ -89,6 +89,16 @@ main { flex: 1; }
   font-weight: 500;
 }
 
+.stat-card {
+  min-width: 220px;      /* consistent width */
+  height: 140px;         /* consistent height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
 /* ---------- Auth cards ---------- */
 .auth-wrapper {
   min-height: calc(100vh - 160px);
@@ -146,3 +156,41 @@ main { flex: 1; }
   border-radius: 4px;
 }
 
+/* ---------- Dark Mode ---------- */
+html.dark-mode body {
+  background: #12151f;
+  color: #e4e6ef;
+}
+html.dark-mode .card {
+  background: #1b1f2e;
+  color: #e4e6ef;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+html.dark-mode .app-footer {
+  background: #1b1f2e;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+html.dark-mode .text-muted { color: #9aa1b5 !important; }
+html.dark-mode .form-control,
+html.dark-mode .form-select {
+  background: #12151f;
+  color: #e4e6ef;
+  border-color: #2a2f42;
+}
+html.dark-mode .form-control::placeholder { color: #7a8099; }
+html.dark-mode .table { 
+   background: #1b1f2e;
+  color: #e4e6ef;
+  border-color: #2a2f42; }
+html.dark-mode .badge-soft { background: #262c45; color: #a9bcff; }
+html.dark-mode .dropdown-menu { background: #1b1f2e; }
+html.dark-mode .dropdown-item { color: #e4e6ef; }
+html.dark-mode .dropdown-item:hover { background: #262c45; color: #fff; }
+html.dark-mode .table thead {
+  background: #12151f;
+  color: #9aa1b5;
+}
+
+html.dark-mode .table-hover tbody tr:hover {
+  background: #262c45;
+}

@@ -9,16 +9,22 @@ if (isset($_SESSION['user_id'])) {
 
 $errors = array();
 $username = "";
+$email = "";
 
 if (isset($_POST['register'])) {
     $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
     $username = htmlspecialchars($username);
+    $email = htmlspecialchars($email);
 
     if ($username == "" || strlen($username) < 3) {
         $errors[] = "Username must be at least 3 characters.";
+    }
+    if ($email == "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Please enter a valid email address.";
     }
     if (strlen($password) < 6) {
         $errors[] = "Password must be at least 6 characters.";
@@ -41,8 +47,8 @@ if (isset($_POST['register'])) {
     if (count($errors) == 0) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $stmt = $conn->prepare("INSERT INTO users (username, password, role, status) VALUES (?, ?, 'user', 'active')");
-        $stmt->bind_param("ss", $username, $hashed_password);
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password, role, status) VALUES (?, ?, ?, 'user', 'active')");
+        $stmt->bind_param("sss", $username, $email, $hashed_password);
 
         if ($stmt->execute()) {
             $_SESSION['success'] = "Account created successfully. Please log in.";
@@ -82,6 +88,11 @@ include "../includes/header.php";
         <div class="mb-3">
           <label class="form-label">Username</label>
           <input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Email</label>
+          <input type="email" name="email" class="form-control" value="<?php echo $email; ?>" required>
         </div>
 
         <div class="mb-3">

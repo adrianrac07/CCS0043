@@ -8,13 +8,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
-// Save updated content for a page (home or about)
+// Save updated content for a page (home, about, or portfolio)
 if (isset($_POST['save_page'])) {
     $page_name = $_POST['page_name'];
     $content = trim($_POST['content']);
 
     // Only allow known page names, keeps this simple and safe
-    if (in_array($page_name, ['home', 'about'])) {
+    if (in_array($page_name, ['home', 'about', 'portfolio'])) {
         $stmt = $conn->prepare("UPDATE cms_pages SET content = ? WHERE page_name = ?");
         $stmt->bind_param("ss", $content, $page_name);
         $stmt->execute();
@@ -26,6 +26,7 @@ if (isset($_POST['save_page'])) {
 
 $homePage = $conn->query("SELECT * FROM cms_pages WHERE page_name = 'home'")->fetch_assoc();
 $aboutPage = $conn->query("SELECT * FROM cms_pages WHERE page_name = 'about'")->fetch_assoc();
+$portfolioPage = $conn->query("SELECT * FROM cms_pages WHERE page_name = 'portfolio'")->fetch_assoc();
 
 $pageTitle = "Edit Page Content";
 $base = "../";
@@ -60,6 +61,19 @@ include "../includes/header.php";
             <input type="hidden" name="page_name" value="about">
             <textarea name="content" class="form-control" rows="6"><?php echo htmlspecialchars($aboutPage['content'] ?? ''); ?></textarea>
             <button type="submit" name="save_page" class="btn btn-accent mt-3">Save About Content</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="mb-3">Portfolio Page Intro</h5>
+          <form method="POST">
+            <input type="hidden" name="page_name" value="portfolio">
+            <textarea name="content" class="form-control" rows="6"><?php echo htmlspecialchars($portfolioPage['content'] ?? ''); ?></textarea>
+            <button type="submit" name="save_page" class="btn btn-accent mt-3">Save Portfolio Intro</button>
           </form>
         </div>
       </div>

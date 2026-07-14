@@ -1,4 +1,16 @@
-<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+
+// Look up the current user's profile picture for the navbar (if logged in and a DB connection exists)
+$navProfileImage = "";
+if (isset($_SESSION['user_id']) && isset($conn)) {
+    $navStmt = $conn->prepare("SELECT profile_image FROM users WHERE id = ?");
+    $navStmt->bind_param("i", $_SESSION['user_id']);
+    $navStmt->execute();
+    $navUser = $navStmt->get_result()->fetch_assoc();
+    $navProfileImage = $navUser['profile_image'] ?? "";
+}
+?>
 <nav class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-semibold" href="<?php echo $base; ?>index.php">
@@ -18,9 +30,19 @@
           <li class="nav-item"><a class="nav-link" href="<?php echo $base; ?>admin/dashboard.php"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
         <?php endif; ?>
 
+        <li class="nav-item">
+          <button type="button" id="darkModeToggle" class="btn btn-sm btn-outline-light" title="Toggle dark mode">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+        </li>
+
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-            <i class="bi bi-person-circle me-1"></i>
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
+            <?php if ($navProfileImage): ?>
+              <img src="<?php echo $base . htmlspecialchars($navProfileImage); ?>" class="rounded-circle me-2" style="width:26px; height:26px; object-fit:cover;">
+            <?php else: ?>
+              <i class="bi bi-person-circle me-1"></i>
+            <?php endif; ?>
             <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Account'; ?>
           </a>
           <ul class="dropdown-menu dropdown-menu-end shadow">

@@ -21,5 +21,24 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// Dark Mode toggle - remembers the choice in localStorage so it applies on every page
+(function () {
+  var toggleBtn = document.getElementById('darkModeToggle');
+  if (!toggleBtn) return;
+
+  function applyTheme(isDark) {
+    document.documentElement.classList.toggle('dark-mode', isDark);
+  }
+
+  applyTheme(localStorage.getItem('theme') === 'dark');
+
+  toggleBtn.addEventListener('click', function () {
+    var isDark = !document.documentElement.classList.contains('dark-mode');
+    applyTheme(isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+})();
+</script>
 </body>
 </html>
