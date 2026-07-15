@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user) {
         if ($user['status'] == 'disabled') {
-            echo "This account is disabled. Please contact the administrator.";
+            $msg = "This account is disabled. Please contact the administrator.";
         } else {
             $_SESSION['username'] = $user['username'];
             $_SESSION['accesslevel'] = $user['accesslevel'];
@@ -24,12 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     } else {
-        echo "Invalid login credentials.";
+        $msg = "Invalid login credentials.";
     }
 }
 ?>
-<form method="POST">
+<link rel="stylesheet" href="style.css">
+<div class="container">
+  <h2>Login</h2>
+  <form method="POST">
     <input type="text" name="username" placeholder="Username" required><br>
     <input type="password" name="password" placeholder="Password" required><br>
     <button type="submit">Login</button>
-</form>
+  </form>
+  <p style="color:red;"><?php if(isset($msg)) echo $msg; ?></p>
+</div>

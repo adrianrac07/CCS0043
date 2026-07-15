@@ -9,14 +9,20 @@ if (isset($_POST['upload'])) {
     if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
         $sql = "UPDATE users SET image='$file' WHERE username='$username'";
         mysqli_query($conn, $sql);
-        echo "Image uploaded successfully!";
+        $msg = "Image uploaded successfully!";
     } else {
-        echo "Failed to upload image.";
+        $msg = "Failed to upload image.";
     }
 }
 ?>
-<form method="POST" enctype="multipart/form-data">
-    Username: <input type="text" name="username"><br>
-    Select Image: <input type="file" name="image"><br>
+<link rel="stylesheet" href="style.css">
+<div class="container">
+  <h2>Upload Image</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="text" name="username" placeholder="Username"><br>
+    <input type="file" name="image"><br>
     <button type="submit" name="upload">Upload</button>
-</form>
+  </form>
+  <p style="color:green;"><?php if(isset($msg)) echo $msg; ?></p>
+  <a href="Admin_home.php">Back</a>
+</div>
